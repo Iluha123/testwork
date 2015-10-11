@@ -1,0 +1,19 @@
+<nav class="navbar navbar-static-top navbar-inverse">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="http://x1group.com/">
+      <span class="glyphicon glyphicon-home"></span> X1 GROUP
+    </a>
+    <div class="navigation pull-right">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" ng-click="nav.openMenu = !nav.openMenu">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <ul ng-class="{active: nav.openMenu}">
+        <li class="active"><a ui-sref="home.repositories" ng-click="nav.openMenu = false">Repositories</a></li>
+        <li><a ui-sref="home.favorite" ng-click="nav.openMenu = false">Favorit Repositorie</a></li>
+      </ul>
+    </div>    
+  </div>
+</nav>

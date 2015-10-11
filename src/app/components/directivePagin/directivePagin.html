@@ -1,0 +1,11 @@
+<ul class="pagination" ng-hide="pagin.hidePagin">
+  <li class="hover" ng-class="{disabled: pagin.countActive === 0}">
+    <span ng-click="pagin.prevPagin()">&laquo;</span>
+  </li>
+  <li ng-repeat="item in pagin.count track by $index" ng-class="{'active': pagin.countActive === $index}">
+    <span ng-click="pagin.setCount($index)" class="hover">{{$index + 1}}</span>
+  </li>
+  <li class="hover" ng-class="{disabled: pagin.countActive === pagin.countLength - 1}">
+    <span ng-click="pagin.nextPagin()">&raquo;</span>
+  </li>
+</ul>

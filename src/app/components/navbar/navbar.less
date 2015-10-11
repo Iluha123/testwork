@@ -1,0 +1,57 @@
+.acme-navbar-text {
+	color: white;
+}
+.navigation{
+	ul{
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		li{
+			display: inline-block;
+			padding: 15px 20px;
+			a{
+				color: #fff;
+			}
+			a:hover{
+				text-decoration: underline;
+			}		
+		}
+	}
+}
+.navbar-inverse .navbar-toggle{
+	border: 0 !important;
+	transition: background 0.5s ease-in-out 0s;
+}
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus{
+	background: rgba(255,255,255,0.1);
+}
+@media (max-width: 768px) {
+	.navigation {
+		float: none;
+		ul{
+			position: absolute;
+			top: 100%;
+			background: @blue;
+			left: 0;
+			height: 0px;
+			overflow: hidden;
+			width: 100%;
+			float: none;
+			transition: height 0.5s ease-in-out 0s;
+			li{
+				display: block;
+				text-align: center;
+				padding: 15px 20px;
+				a{
+					color: #fff;
+				}
+				a:hover{
+					text-decoration: underline;
+				}		
+			}
+		}
+		ul.active{
+			height: 100px;
+		}
+	}
+}
