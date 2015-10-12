@@ -48,7 +48,6 @@
           }
         },
         function(newVal, oldVal) {
-          console.log(newVal, oldVal);
           if(newVal !== undefined) {
             vm.countActive = newVal;
           }
@@ -57,7 +56,7 @@
 
       getPagin();
       function getPagin() {
-        vm.hidePagin = !$scope.count;
+        vm.hidePagin = ($scope.count <= 9);
         vm.count = [];
         vm.countLength = Math.ceil($scope.count/10);
         for (var i = 0; i < vm.countLength; i++){

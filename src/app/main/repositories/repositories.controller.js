@@ -24,7 +24,6 @@
         vm.repositories = data;
         vm.repositListLength = vm.repositories.length;
         activePage(0);
-        console.log(vm.repositories);
     });
     // store.remove('favoriteId');
     // store.remove('favorite');

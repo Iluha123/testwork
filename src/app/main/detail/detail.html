@@ -1,0 +1,86 @@
+<p ng-show="det.message" ng-bind="det.message"></p>
+<div class="main-content" ng-hide="det.message">
+	
+</div>
+<h1 class="hr-5">DEtail infor</h1>
+<div class="row">
+	<div class="col-xs-4">
+		<img ng-src="{{det.user.owner.avatar_url}}" alt="" class="w100 img-rounded">
+	</div>
+	<div class="col-xs-8">
+		<h3 class="normal text-blue" ng-bind="det.user.owner.login"></h3>
+		<h2 ng-bind="det.user.name"></h2>
+		<p ng-bind="det.user.description"></p>
+		<ul class="list-inline">
+		  <li><span>forks</span>: <span ng-bind="det.user.forks"></span></li>
+		  <li><span>network</span>: <span ng-bind="det.user.network_count"></span></li>
+		  <li><span>size</span>: <span ng-bind="det.user.size"></span></li>
+		  <li><span>watchers</span>: <span ng-bind="det.user.watchers"></span></li>
+		</ul>
+	</div>
+</div>
+<div class="clearfix hr-4"></div>
+<div class="btn-group w100">
+  <button type="button" class="w50 btn btn-default" ng-click="det.hideCon = false">Contributors</button>
+  <button type="button" class="w50 btn btn-default" ng-click="det.hideCon = true">languages</button>
+</div>
+
+<div class="col-xs-12" ng-hide="det.hideCon">
+	<h2 class="text-left">Contributors</h2>
+	<div class="text-center" pagind count="det.conListLength" setactive="det.setactive(active)" getcountactive="det.setnull"></div>
+
+	<div class="row items-a" ng-repeat="contrib in det.activePage track by $index">
+		<div class="col-xs-12">
+			<div class="jumbotron">
+				<ul class="list-inline">
+					<li><h3 class="mr-2 mt-0 hr-2 normal" ng-bind="contrib.login"></h3></li>
+					<li><img ng-src="{{contrib.avatar_url}}" alt="{{contrib.owner.login}}" class="mr-2"></li>
+					<li><p>contributions: <span ng-bind="contrib.contributions"></span></p></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div ng-hide="!det.hideCon">
+	<ul class="list">
+		<li ng-repeat="it in det.lengKey track by $index">
+			<span ng-bind="it.key"></span>: 
+			<span ng-bind="it.val" class="text-success"></span>
+		</li>
+	</ul>
+</div>
+
+
+<!-- <div ng-hide="!det.hideCon">
+	<div class="col-xs-12 col-sm-6 col-sm-offset-6">
+		<h2 class="text-right">last V</h2>
+		<div class="row">	
+			<div class="col-xs-12 hr-2">
+				<div class="border clearfix">
+					<p><span ng-bind="det.tags[0].name"></span></p>
+					<p class="text-right nowrap"><span class="text-blue text-right" ng-bind="det.tags[0].commit.sha"></span></p>
+					<a class="btn btn-primary pull-right" ng-href="{{det.tags[0].zipball_url}}">download ZIP</a>
+				</div>			
+			</div>
+		</div>
+	</div>
+
+	<div class="col-xs-12">
+		<div class="jumbotron">
+			<div class="border-bottom">
+				<p class="dib f14" ng-bind="det.url.commit.author.name"></p>
+				<p class="dib f14" ng-bind="det.url.commit.author.email"></p>
+				<p class="dib f14 border-bottm hr-3" ng-bind="det.url.commit.author.date | date: 'M/d/yy h:mm a'"></p>
+			</div>		
+			<p><strong>files</strong></p>
+			<div class="row" ng-repeat="file in det.url.files track by $index">
+				<div class="col-xs-6"><p ng-bind="file.filename" class="pull-left"></p></div>
+				<div class="col-xs-6"><a ng-href="file.raw_url" class="btn btn-default pull-right">raw</a></div>
+				
+			</div>
+		</div>
+	</div>
+</div> -->
+
+

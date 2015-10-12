@@ -35,7 +35,6 @@
   	function activePage(index) {
       vm.activePage = repositList.slice(index*10, (index+1)*10);
       vm.setnull = index;
-      console.log(vm.setnull);
     }
 
 

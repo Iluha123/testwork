@@ -32,8 +32,8 @@
         controller: 'FavorCtrl',
         controllerAs: 'fav'
       })
-      .state('home.repositories.detail', {
-        url: '/detail',
+      .state('home.detail', {
+        url: '/detail/:owner/:name',
         templateUrl: 'app/main/detail/detail.html',
         controller: 'DetailCtrl',
         controllerAs: 'det'
