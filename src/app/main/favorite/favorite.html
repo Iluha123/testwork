@@ -5,7 +5,7 @@
 <div class="row items-a" ng-repeat="reposit in fav.activePage track by reposit.id">
 	<div class="col-xs-12">
 		<div class="jumbotron">
-			<h2 class="mr-2 mt-0 hr-2"><a ng-href="{{reposit.html_url}}" class="hover normal" ng-bind="reposit.name"></a></h2>
+			<h2 class="mr-2 mt-0 hr-2"><a ui-sref="home.detail({ owner: reposit.owner.login, name: reposit.name })" class="hover normal" ng-bind="reposit.name"></a></h2>
 			<p>
 				<img ng-src="{{reposit.owner.avatar_url}}" alt="{{reposit.owner.login}}" class="mr-2">
 				<a ng-href="" ng-bind="reposit.owner.login" class="h3 normal hover"></a>

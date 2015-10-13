@@ -25,9 +25,6 @@
       firstService.getAny(item).then(function(data) {
         vm[name] = data;
         toNormal(vm[name]);
-        // if(vm[name] && vm[name].length){
-        //   getAny2(vm[name][0].commit.url, 'url');
-        // }        
       }).catch(function() {
         console.log('error');
       });
