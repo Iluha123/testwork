@@ -1,0 +1,10 @@
+<h1 class="hr-5">GitHub top Projects</h1>
+<carousel interval="landing.myInterval">
+  <slide ng-repeat="slide in landing.slides track by $index" active="slide.active">
+    <img ng-src="{{slide.url}}">
+    <div>
+	    <h2 class="car-title text-left">{{$index + 1}}. {{slide.title}}</h2>
+	    <div class="text-left" ng-bind-html="slide.parag"></div>
+	</div>
+  </slide>
+</carousel>

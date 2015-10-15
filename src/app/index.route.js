@@ -10,7 +10,7 @@
     
     $locationProvider.html5Mode(true);
 
-    $urlRouterProvider.otherwise('/home/repositories');
+    $urlRouterProvider.otherwise('/home/landing');
     //
     // Now set up the states
     $stateProvider
@@ -19,6 +19,12 @@
         templateUrl: 'app/main/home.html',
         controller: 'HomeCtrl',
         controllerAs: 'home'
+      })
+      .state('home.landing', {
+        url: '/landing',
+        templateUrl: 'app/main/landing/landing.html',
+        controller: 'LandingCtrl',
+        controllerAs: 'landing'
       })
       .state('home.repositories', {
         url: '/repositories',
