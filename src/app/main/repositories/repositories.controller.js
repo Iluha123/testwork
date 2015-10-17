@@ -5,8 +5,8 @@
     .module('x1group')
     .controller('RepositoriesCtrl', RepositoriesCtrl);
 
-  RepositoriesCtrl.$inject = ['firstService', '$filter', 'store'];
-  function RepositoriesCtrl(firstService, $filter, store) {
+  RepositoriesCtrl.$inject = ['firstService', '$filter', 'store', '$scope'];
+  function RepositoriesCtrl(firstService, $filter, store, $scope) {
     var vm = this;
     var expression;
     vm.filterFunc = filterFunc;
@@ -22,18 +22,27 @@
     var favoriteId = store.get('favoriteId') || [];
   	firstService.get().then(function (data) {
         vm.repositories = data;
+        countInit();
         vm.repositListLength = vm.repositories.length;
         activePage(0);
     });
+
     // store.remove('favoriteId');
     // store.remove('favorite');
     function setactive(active) {
       vm.countActive = active;
       activePage(vm.countActive);
     }
+    function countInit() {
+      $scope.$broadcast("counInit", { newValue: vm.repositories.length});
+    }
+    function setActiveCount(index) {
+      $scope.$broadcast("counAct", { newValue: index});
+    }
 
     function activePage(index) {
       vm.activePage = vm.repositories.slice(index*10, (index+1)*10);
+      setActiveCount(index);
       vm.setnull = index;
     }
 

@@ -1,10 +1,41 @@
-<h1 class="hr-5">GitHub top Projects</h1>
-<carousel interval="landing.myInterval">
-  <slide ng-repeat="slide in landing.slides track by $index" active="slide.active">
-    <img ng-src="{{slide.url}}">
-    <div>
-	    <h2 class="car-title text-left">{{$index + 1}}. {{slide.title}}</h2>
-	    <div class="text-left" ng-bind-html="slide.parag"></div>
+<h1 class="hr-2 text-center">GitHub Top Projects</h1>
+<div class="row">
+	<carousel interval="landing.myInterval">
+	 	<slide ng-repeat="slide in landing.slides track by $index" active="slide.active">
+		    <div class="bg-img"><img ng-src="{{slide.url}}"></div>
+		    <div class="text-left text-in-slider">
+			    <h2 class="car-title text-left capital-land">{{$index + 1}}. {{slide.title}}</h2>
+			    <div class="row">
+			    	<div class="col-sm-8 col-xs-12" ng-bind-html="slide.parag"></div>
+			    </div>
+			</div>
+	 	</slide>
+	</carousel>
+</div>
+
+
+<div class="row">
+	<div class="some-block">
+		<h2 class="some-head">Some Head</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, enim?</p>
 	</div>
-  </slide>
-</carousel>
+</div>
+
+<div class="row">
+	<div class="col-xs-6 some-list some-list-1">
+		<p class="ico ico-1"></p>
+		<p>1000 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, nihil.</p>
+	</div>
+	<div class="col-xs-6  some-list some-list-2">
+		<p class="ico ioc-2"></p>
+		<p>1000 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, nihil.</p>
+	</div>
+	<div class="col-xs-6  some-list some-list-3">
+		<p class="ico ico-3"></p>
+		<p>1000 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, nihil.</p>
+	</div>
+	<div class="col-xs-6  some-list some-list-4">
+		<p class="ico ico-4"></p>
+		<p>1000 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, nihil.</p>
+	</div>
+</div>

@@ -40,7 +40,10 @@
 .normal{
   font-weight: normal;
 }
+html{height: 100%;}
 body{
+  min-width: 400px;
+  height: 100%;
 	font-family: 'Roboto','Segoe UI','Helvetica',Verdana,Arial,sans-serif;
 }
 .navbar-inverse{
@@ -110,4 +113,15 @@ body{
 }
 .text-blue{
   color: @blue;
+}
+.main-container{
+  background: #FFF;
+  box-shadow: inset 0 0 5px 0 rgba(0,0,0,0.5);
+}
+.wrapper{
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 20px;
+  background: #303A43;
 }

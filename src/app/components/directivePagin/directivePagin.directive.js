@@ -29,34 +29,17 @@
       vm.setCount = setCount;
       vm.count = [];
 
-      $scope.$watch(
-        function() {
-          if ($scope.count) {
-            return $scope.count;
-          }
-        },
-        function(newVal) {
-          $scope.count = newVal;
-          getPagin();
-        }
-      );
-
-      $scope.$watch(
-        function() {
-          if ($scope.getcountactive || $scope.getcountactive === 0) {
-            return $scope.getcountactive;
-          }
-        },
-        function(newVal, oldVal) {
-          if(newVal !== undefined) {
-            vm.countActive = newVal;
-          }
-        }
-      );
+      $scope.$on("counInit", function(event, options) {
+        $scope.count = options.newValue;
+        getPagin();
+      });
+      $scope.$on("counAct", function(event, options) {
+        vm.countActive = options.newValue;
+      });
 
       getPagin();
       function getPagin() {
-        vm.hidePagin = ($scope.count <= 9);
+        vm.hidePagin = ($scope.count <= 10);
         vm.count = [];
         vm.countLength = Math.ceil($scope.count/10);
         for (var i = 0; i < vm.countLength; i++){

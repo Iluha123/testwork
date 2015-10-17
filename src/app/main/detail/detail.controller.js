@@ -5,8 +5,8 @@
     .module('x1group')
     .controller('DetailCtrl', DetailCtrl);
  
- DetailCtrl.$inject = ['store', '$stateParams', 'firstService'];
- function DetailCtrl(store, $stateParams, firstService) {
+ DetailCtrl.$inject = ['$scope', 'store', '$stateParams', 'firstService'];
+ function DetailCtrl($scope, store, $stateParams, firstService) {
    	var vm = this;
     vm.hideCon = false;
     vm.setactive = setactive;
@@ -43,6 +43,7 @@
         vm[name] = data;
         if(vm[name] && vm[name].length){
           vm.conListLength = vm[name].length;
+          countInit();
           activePage(0);
         }        
       }).catch(function() {
@@ -52,6 +53,7 @@
 
     function activePage(index) {
       vm.activePage = vm.contr.slice(index*10, (index+1)*10);
+      setActiveCount(index);
       vm.setnull = index;
     }
     
@@ -68,5 +70,14 @@
         vm.lengKey.push(objN);
       }
     }
+
+    function countInit() {
+      $scope.$broadcast("counInit", { newValue: vm.conListLength});
+    }
+
+    function setActiveCount(index) {
+      $scope.$broadcast("counAct", { newValue: index});
+    }
+
   } 
 })();
