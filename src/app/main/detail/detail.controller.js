@@ -18,7 +18,7 @@
       getAny(vm.user.languages_url, 'leng');
       getAny3(vm.user.contributors_url, 'contr');
     }).catch(function() {
-      vm.message= 'Sory, server not Ok'
+      vm.message= 'Sory, server not Ok';
     });
 
     function getAny(item, name) {
@@ -26,15 +26,7 @@
         vm[name] = data;
         toNormal(vm[name]);
       }).catch(function() {
-        console.log('error');
-      });
-    }
-
-    function getAny2(item, name) {
-      firstService.getAny(item).then(function(data) {
-        vm[name] = data;
-      }).catch(function() {
-        console.log('error');
+        // console.log('error');
       });
     }
 
@@ -44,21 +36,21 @@
         if(vm[name] && vm[name].length){
           vm.conListLength = vm[name].length;
           countInit();
-          activePage(0);
+          activePageFunc(0);
         }        
       }).catch(function() {
-        console.log('error');
+        // console.log('error');
       });
     }
 
-    function activePage(index) {
+    function activePageFunc(index) {
       vm.activePage = vm.contr.slice(index*10, (index+1)*10);
       setActiveCount(index);
       vm.setnull = index;
     }
     
     function setactive(active) {
-      activePage(active);
+      activePageFunc(active);
     }
 
     function toNormal(obj) {
@@ -66,7 +58,7 @@
         var objN = {
           key: key,
           val: obj[key]
-        }
+        };
         vm.lengKey.push(objN);
       }
     }

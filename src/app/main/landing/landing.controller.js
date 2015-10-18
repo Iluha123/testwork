@@ -35,6 +35,6 @@
  			title: 'Font Awesome',
  			parag: '<p>Font Awesome is a font designed for the Bootstrap framework. Leveraging CSS, Font Awesome features scalable vector icons that can be customized for size, color, and drop shadow. Version 3.2, the latest release, features 58 new icons, as well as new styles. Font Awesone is free for commercial use and desktop-friendly, Font Awesome advocates say</p>'
  		}
- 	]
+ 	];
   } 
 })();

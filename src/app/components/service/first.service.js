@@ -36,6 +36,6 @@
         get: getElements,
         getOne: getOne,
         getAny: detAny
-      }
+      };
     }
 })();

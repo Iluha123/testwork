@@ -13,19 +13,19 @@
   vm.setactive = setactive;
   vm.removeFav = removeFav;
   vm.count = [];
-	var repositList = store.get('favorite') || [];
-  var favoriteId = store.get('favoriteId') || [];
+	vm.repositList = store.get('favorite') || [];
+  vm.favoriteId = store.get('favoriteId') || [];
 
   function startFunc() {
     countInit();
-    vm.repositListLength = repositList.length;
-    vm.paginShow = (repositList.length <= 10);
-  	if(repositList.length > 1) {
-  		vm.title = 'Your Favorit repositories'
-  	} else if(repositList.length === 1) {
-		vm.title = 'Your Favorit repositorie'
+    vm.repositListLength = vm.repositList.length;
+    vm.paginShow = (vm.repositList.length <= 10);
+  	if(vm.repositList.length > 1) {
+  		vm.title = 'Your Favorit repositories';
+  	} else if(vm.repositList.length === 1) {
+		  vm.title = 'Your Favorit repositorie';
   	} else {
-  		vm.title = 'NO Your Favorit repositories'
+  		vm.title = 'NO Your Favorit repositories';
   	}
 
   }
@@ -34,7 +34,7 @@
 	activePage(0);
 
   function countInit() {
-    $scope.$broadcast("counInit", { newValue: repositList.length});
+    $scope.$broadcast("counInit", { newValue: vm.repositList.length});
   }
 
   function setActiveCount(index) {
@@ -42,19 +42,19 @@
   }
 
 	function activePage(index) {
-    vm.activePage = repositList.slice(index*10, (index+1)*10);
+    vm.activePage = vm.repositList.slice(index*10, (index+1)*10);
     setActiveCount(index);
     vm.setnull = index;
   }
 
 
   function removeFav(id) {
-  	var index = favoriteId.indexOf(id);
-		favoriteId.splice(index, 1);
-    repositList.splice(index, 1);
+  	var index = vm.favoriteId.indexOf(id);
+		vm.favoriteId.splice(index, 1);
+    vm.repositList.splice(index, 1);
     activePage(vm.countActive);
-		store.set('favorite', repositList);
-  	store.set('favoriteId', favoriteId);
+		store.set('favorite', vm.repositList);
+  	store.set('favoriteId', vm.favoriteId);
     startFunc();
   }
 

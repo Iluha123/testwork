@@ -18,20 +18,22 @@
     vm.setnull = 0;
     vm.filterReverse = false;
     vm.count = [];
-    var repositList = store.get('favorite') || [];
-    var favoriteId = store.get('favoriteId') || [];
+
+    vm.repositList = store.get('favorite') || [];
+    vm.favoriteId = store.get('favoriteId') || [];
+
   	firstService.get().then(function (data) {
         vm.repositories = data;
         countInit();
         vm.repositListLength = vm.repositories.length;
-        activePage(0);
+        activePageFunc(0);
     });
 
     // store.remove('favoriteId');
     // store.remove('favorite');
     function setactive(active) {
       vm.countActive = active;
-      activePage(vm.countActive);
+      activePageFunc(vm.countActive);
     }
     function countInit() {
       $scope.$broadcast("counInit", { newValue: vm.repositories.length});
@@ -40,21 +42,21 @@
       $scope.$broadcast("counAct", { newValue: index});
     }
 
-    function activePage(index) {
+    function activePageFunc(index) {
       vm.activePage = vm.repositories.slice(index*10, (index+1)*10);
       setActiveCount(index);
       vm.setnull = index;
     }
 
     function filterFunc(exp) {
-      expression = exp
+      expression = exp;
       vm.repositories = $filter('orderBy')(vm.repositories, expression, vm.filterReverse);
       setCount(0);
     }
 
     function setCount(index) {
       vm.countActive = index;
-      activePage(vm.countActive);
+      activePageFunc(vm.countActive);
     }
 
     function filterReverseFunc() {
@@ -63,21 +65,21 @@
     }
 
     function addFavorite(reposit) {
-      var index = favoriteId.indexOf(reposit.id);
+      var index = vm.favoriteId.indexOf(reposit.id);
       if(index === -1) {
-        repositList.push(reposit);
-        favoriteId.push(reposit.id);        
+        vm.repositList.push(reposit);
+        vm.favoriteId.push(reposit.id);        
       } else {
-        favoriteId.splice(index, 1);
-        repositList.splice(index, 1);
+        vm.favoriteId.splice(index, 1);
+        vm.repositList.splice(index, 1);
       }
-      store.set('favorite', repositList);
-      store.set('favoriteId', favoriteId);   
+      store.set('favorite', vm.repositList);
+      store.set('favoriteId', vm.favoriteId);   
 
     }
 
     function activeFavorite(id) {
-      if(favoriteId.indexOf(id) !== -1 ) {
+      if(vm.favoriteId.indexOf(id) !== -1 ) {
         return true;
       } else {
         return false;

@@ -19,7 +19,7 @@
     };
 
     return directive;
-
+  }
     dPaginCtrl.$inject = ['$scope'];
     function dPaginCtrl($scope) {
       var vm = this;
@@ -63,10 +63,9 @@
         vm.countActive = index;
         activePage(vm.countActive);
       }
-      function activePage(index) {
+      function activePage() {
         $scope.setactive({active: vm.countActive});
       }
     }
-  }
 
 })();
