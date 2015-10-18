@@ -12,7 +12,9 @@
 @navbar-inverse-link-color: #5AADBB;
 @icon-font-path: '../../bower_components/bootstrap/fonts/';
 @blue: #2062A0;
+@btn-blue: #00c6ff;
 @blue-hover: darken(@blue, 10%);
+@btn-blue-hover: darken(@btn-blue, 10%);
 
 .browsehappy {
   margin: 0.2em 0;
@@ -46,19 +48,7 @@ body{
   height: 100%;
 	font-family: 'Roboto','Segoe UI','Helvetica',Verdana,Arial,sans-serif;
 }
-.navbar-inverse{
-	background: #205081;
-	border-color: #2e3d54;
-}
-.navbar-inverse .navbar-brand{
-	color: #FFF;
-}
-.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus{
-	background: none;
-}
-.navbar-inverse .navbar-nav > li > a{
-  color: #EEE;
-}
+
 .wrapper{
   overflow: hidden;
   max-width: 100%;
@@ -105,6 +95,26 @@ body{
 .pagination{
   margin: 20px auto;
 }
+.pagination > .active > span, 
+.pagination > .active > span:hover{
+  background: @btn-blue;
+  border-color: #eeeeee;
+}
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary.active, 
+.open > .dropdown-toggle.btn-primary{
+  background: @btn-blue-hover;
+  border-color: @btn-blue-hover ;
+}
+.btn-primary {
+    color: #fff;
+    background: @btn-blue;
+    border-color: @btn-blue-hover ;
+}
+.btn-primary:hover {
+    background: @btn-blue-hover;
+}
 .revers{
   padding-left: 20px;
 }
@@ -116,12 +126,18 @@ body{
 }
 .main-container{
   background: #FFF;
-  box-shadow: inset 0 0 5px 0 rgba(0,0,0,0.5);
 }
 .wrapper{
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  padding-bottom: 20px;
-  background: #303A43;
+}
+.glyphicon.f30{
+  color: #EFC31C;
+}
+.bg-grey{
+  background: #ebebeb;
+}
+.text-fiol{
+  color: #1e0a3a;
 }

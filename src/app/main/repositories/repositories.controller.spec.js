@@ -4,15 +4,15 @@
   describe('Repositories controller', function(){
 var scope, vm;
 
-    
+   
     beforeEach(angular.mock.module('x1group'));
     beforeEach(angular.mock.inject(function($rootScope, $controller){
         
-        scope = $rootScope.$new();
+      scope = $rootScope.$new();
+      vm = $controller('RepositoriesCtrl', {
+      	$scope: scope
+      });
 
-        vm = $controller('RepositoriesCtrl', {
-        	$scope: scope
-        });
     }));
 
     it('should define all function', function() {

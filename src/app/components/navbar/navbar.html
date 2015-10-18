@@ -1,7 +1,7 @@
 <nav class="navbar navbar-static-top navbar-inverse">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand" ui-sref="home.landing">
-      <span class="glyphicon glyphicon-home"></span> Home
+      <span class="logo"></span> <span>REPOSITORIES</span>
     </a>
     <div class="navigation pull-right">
       <button type="button" class="navbar-toggle" data-toggle="collapse" ng-click="nav.openMenu = !nav.openMenu">
@@ -11,7 +11,8 @@
         <span class="icon-bar"></span>
       </button>
       <ul ng-class="{active: nav.openMenu}">
-        <li class="active repositories"><a ui-sref="home.repositories" ng-click="nav.openMenu = false">Repositories</a></li>
+        <li><a ui-sref="home.landing" ng-click="nav.openMenu = false">Home</a></li>
+        <li><a ui-sref="home.repositories" ng-click="nav.openMenu = false">Repositories</a></li>
         <li><a ui-sref="home.favorite" ng-click="nav.openMenu = false">Favorit Repositorie</a></li>
       </ul>
     </div>    

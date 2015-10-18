@@ -17,7 +17,6 @@
 
     return directive;
 
-    /** @ngInject */
     function NavbarController() {
       var vm = this;
       vm.openMenu = false;
